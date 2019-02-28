@@ -1,4 +1,4 @@
-package Activity2
+package Activity2;
 
 public class Card {
     private String suit;
