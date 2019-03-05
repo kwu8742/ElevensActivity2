@@ -28,13 +28,17 @@ public class Deck {
     }
 
     public Card deal() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+	    double randomDouble = Math.Random();	
+	    int randomInt = (int)(randomDouble * 52);
+	    
+	    List<Card>cards = new ArrayList2<card>();
+	    while(ArrayList2.length < 52)
+	    {
+		ArrayList2.add(ArrayList.get(randomInt));
+	    	ArrayList.remove(randomInt);
+	    }
     }
 
-    /**
-     * Generates and returns a string representation of this deck.
-     * @return a string representation of this deck.
-     */
     @Override
     public String toString() {
         String rtn = "size = " + size + "\nUndealt cards: \n";
