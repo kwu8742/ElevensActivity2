@@ -6,37 +6,40 @@ public class Deck {
     private int size;
 
     public Deck(String[] ranks, String[] suits, int[] values) {
-	    this.cards = new ArrayList<>();
-		for (int i = 0; i < suits.length; i ++) {
-		    for (int j = 0; j < ranks.length; j ++) {
-		        this.cards.add(new Card(ranks[j],suits[i], values[j]));
+        this.cards = new ArrayList<>();
+        for (int i = 0; i < suits.length; i ++) {
+            for (int j = 0; j < ranks.length; j ++) {
+                this.cards.add(new Card(ranks[j],suits[i], values[j]));
             }
         }
         this.size = this.cards.size();
     }
 
     public boolean isEmpty() {
-	    return this.size <= 0;
+        return this.size <= 0;
     }
 
     public int size() {
-		return this.size;
+        return this.size;
     }
 
     public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+        int card;
+        Card tempCard;
+        for(int n = 0; n < size; n++)
+        {
+            card = (int)(Math.random() * (size - 1) + 1);
+            tempCard = cards.get(card);
+            cards.set(card, cards.get(n));
+            cards.set(n, tempCard);
+        }
     }
-
     public Card deal() {
-	    double randomDouble = Math.Random();	
-	    int randomInt = (int)(randomDouble * 52);
-	    
-	    List<Card>cards = new ArrayList2<card>();
-	    while(ArrayList2.length < 52)
-	    {
-		ArrayList2.add(ArrayList.get(randomInt));
-	    	ArrayList.remove(randomInt);
-	    }
+        if(!this.isEmpty()) {
+            this.size--;
+            return cards.get(size);
+        }
+        return null;
     }
 
     @Override
